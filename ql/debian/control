@@ -1,0 +1,14 @@
+Source: pyslurm
+Section: libs
+Priority: extra
+Maintainer: Roland Fehrenbacher <rf@q-leap.de>
+Uploaders: Goswin von Brederlow <gvb@q-leap.de>
+Build-Depends: debhelper (>= 9), cython, slurm-llnl-basic-plugins, python-dev, libslurm-dev, ql-deb-utils (>= 1.0)
+Standards-Version: 3.9.4
+Homepage: https://github.com/gingergeeks/pyslurm
+
+Package: pyslurm
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Python interface to slurm
+ Python interface to slurm

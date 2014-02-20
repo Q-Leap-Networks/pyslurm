@@ -1,0 +1,63 @@
+pyslurm (2.6.4-ql.1) stable; urgency=low
+
+  * New upstream version 2.6.4
+  * Build against Slurm 2.6.4
+  * Initial Qlustar package using GIT method
+
+ -- Roland Fehrenbacher <rf@q-leap.de>  Wed, 19 Feb 2014 19:21:53 +0000
+
+pyslurm (2.5.3.1-ql.1) stable; urgency=low
+
+  * New upstream version 2.5.3.1
+
+ -- Roland Fehrenbacher <rf@q-leap.de>  Thu, 07 Feb 2013 18:49:14 +0100
+
+pyslurm (2.5.3-ql.1) stable; urgency=low
+
+  * New upstream version 2.5.3
+
+ -- Roland Fehrenbacher <rf@q-leap.de>  Wed, 06 Feb 2013 13:46:01 +0100
+
+pyslurm (2.5.2-ql.1) stable; urgency=low
+
+  * New upstream version 2.5.3 (QL version number)
+    commit 22c21db3f557c17887e7d581d745d6e713eb9f6c
+    Thu Dec 27 00:09:09 2012 +0000
+
+ -- Roland Fehrenbacher <rf@q-leap.de>  Mon, 04 Feb 2013 17:49:05 +0100
+
+pyslurm (0.0.3-ql.1) stable; urgency=low
+
+  * Build against slurm 2.3
+
+ -- Roland Fehrenbacher <rf@q-leap.de>  Fri, 14 Dec 2012 12:04:24 +0100
+
+pyslurm (0.0.2) stable; urgency=low
+
+  * Change debain/rules to use dh.
+    + Bump Build-Depends: ql-utils to 0.15.
+    + Fix missing support for python 2.7.
+
+ -- Goswin von Brederlow <brederlo@q-leap.de>  Fri, 08 Jun 2012 16:10:10 +0200
+
+pyslurm (0.0.1-3) stable; urgency=low
+
+  * Recompile with single source for squeeze, lucid and precise.
+  * Change to 3.0 (native) format (ignores .hg and .hgtags).
+  * Add Uplaoders to debian/control.
+  * Add missing Build-Depends: cython, slurm-llnl-basic-plugins,
+    python-dev, libslurm-dev, ql-utils (>= 0.11).
+
+ -- Goswin von Brederlow <brederlo@q-leap.de>  Wed, 25 Jan 2012 16:20:19 +0100
+
+pyslurm (0.0.1-2) stable; urgency=low
+
+  * depend on libslurm23
+
+ -- Peter Kruse <pk@q-leap.de>  Mon, 24 Oct 2011 12:15:09 +0200
+
+pyslurm (0.0.1-1) stable; urgency=low
+
+  * Initial release
+
+ -- Peter Kruse <pk@q-leap.de>  Tue, 18 Oct 2011 11:01:59 +0200
