@@ -1,14 +1,12 @@
 #!/usr/bin/make -f
 # -*- makefile -*-
 
-include /usr/share/ql-deb-utils/Makefile
-BUILDDIR=$(BUILD_BASE_DIR)
+DEBVENDOR  := $(shell dpkg-vendor --query Vendor)
+
+ifeq ($(DEBVENDOR), Qlustar)
+    # Qlustar specific stuff
+    include /usr/share/ql-deb-utils/Makefile
+endif
 
 %:
-	dh $@ --with autoreconf --sourcedirectory=$(BUILDDIR) \
-	  --builddirectory=$(BUILDDIR)
-
-override_dh_autoreconf: unpack-and-patch-src-stamp
-
-override_dh_auto_clean:
-	if [ -d $(BUILD_BASE_DIR) ]; then rm -rf $(BUILD_BASE_DIR); fi
+	dh $@ 
