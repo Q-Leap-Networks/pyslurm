@@ -15,6 +15,7 @@ Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Conflicts: pyslurm
 Replaces: pyslurm
+Provides: pyslurm
 Description: Python interface to slurm
  Python interface to slurm
  This package supports python 2.x.
