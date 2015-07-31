@@ -5,7 +5,7 @@ Maintainer: Roland Fehrenbacher <rf@q-leap.de>
 Uploaders: Goswin von Brederlow <gvb@q-leap.de>
 Build-Depends: debhelper (>= 9), ql-deb-utils (>= 1.0),
  slurm-wlm-basic-plugins, libslurm-dev, libslurmdb-dev,
- cython (>= 0.21), python-dev
+ cython (>= 0.21), cython3 (>= 0.21), python-dev
 Standards-Version: 3.9.4
 Homepage: https://github.com/gingergeeks/pyslurm
 
