@@ -320,21 +320,22 @@ cdef extern from 'slurm/slurm.h' nogil:
 	ctypedef task_dist_states task_dist_states_t
 
 	ctypedef enum cpu_bind_type:
-		CPU_BIND_VERBOSE = 0x01
-		CPU_BIND_TO_THREADS = 0x02
-		CPU_BIND_TO_CORES = 0x04
-		CPU_BIND_TO_SOCKETS = 0x08
-		CPU_BIND_TO_LDOMS = 0x10
+		CPU_BIND_VERBOSE = 0x0001
+		CPU_BIND_TO_THREADS = 0x0002
+		CPU_BIND_TO_CORES = 0x0004
+		CPU_BIND_TO_SOCKETS = 0x0008
+		CPU_BIND_TO_LDOMS = 0x0010
 		CPU_BIND_TO_BOARDS = 0x1000
-		CPU_BIND_NONE = 0x20
-		CPU_BIND_RANK = 0x40
-		CPU_BIND_MAP = 0x80
-		CPU_BIND_MASK = 0x100
-		CPU_BIND_LDRANK = 0x200
-		CPU_BIND_LDMAP = 0x400
-		CPU_BIND_LDMASK = 0x800
+		CPU_BIND_NONE = 0x0020
+		CPU_BIND_RANK = 0x0040
+		CPU_BIND_MAP = 0x0080
+		CPU_BIND_MASK = 0x0100
+		CPU_BIND_LDRANK = 0x0200
+		CPU_BIND_LDMAP = 0x0400
+		CPU_BIND_LDMASK = 0x0800
 		CPU_BIND_ONE_THREAD_PER_CORE = 0x2000
 		CPU_BIND_CPUSETS = 0x8000
+		CPU_AUTO_BIND_TO_THREADS = 0x04000
 
 	ctypedef cpu_bind_type cpu_bind_type_t
 
@@ -574,7 +575,7 @@ cdef extern from 'slurm/slurm.h' nogil:
 		char *mloaderimage
 		char *ramdiskimage
 		uint32_t req_switch
-		dynamic_plugin_data_t *select_jobinfo;
+		dynamic_plugin_data_t *select_jobinfo
 		char *std_err
 		char *std_in
 		char *std_out
@@ -1235,7 +1236,7 @@ cdef extern from 'slurm/slurm.h' nogil:
 		uint32_t available
 		uint8_t remote
 
-	ctypedef slurm_license_info slurm_license_info_t;
+	ctypedef slurm_license_info slurm_license_info_t
 
 	ctypedef struct license_info_msg:
 		time_t last_update
@@ -1565,3 +1566,67 @@ cdef extern from 'slurm/slurm.h' nogil:
 	#
 	# End
 	#
+
+#
+# Main Slurmdb API
+#
+
+cdef extern from 'slurm/slurmdb.h' nogil:
+	ctypedef struct slurmdb_qos_rec:
+		char *description
+		uint32_t id
+		uint32_t flags
+		uint32_t grace_time
+		uint64_t grp_cpu_mins
+		uint64_t grp_cpu_run_mins
+		uint32_t grp_cpus
+		uint32_t grp_jobs
+		uint32_t grp_mem
+		uint32_t grp_nodes
+		uint32_t grp_submit_jobs
+		uint32_t grp_wall
+		uint64_t max_cpu_mins_pj
+		uint64_t max_cpu_run_mins_pu
+		uint32_t max_cpus_pj
+		uint32_t max_cpus_pu
+		uint32_t max_jobs_pu
+		uint32_t max_nodes_pj
+		uint32_t max_nodes_pu
+		uint32_t max_submit_jobs_pu
+		uint32_t max_wall_pj
+		char *name
+		bitstr_t *preempt_bitstr
+		List preempt_list
+		uint16_t preempt_mode
+		uint32_t priority
+		void *usage # assoc_mgr_qos_usage_t
+		double usage_factor
+		double usage_thres
+
+	ctypedef slurmdb_qos_rec slurmdb_qos_rec_t
+
+	ctypedef struct slurmdb_qos_cond:
+		List description_list
+		List id_list
+		List name_list
+		uint16_t preempt_mode
+		uint16_t with_deleted
+
+	ctypedef slurmdb_qos_cond slurmdb_qos_cond_t
+
+	#
+	# Accounting Storage
+	#
+
+	cdef extern void *slurmdb_connection_get ()
+	cdef extern int slurmdb_connection_close (void **db_conn)
+	cdef extern List slurmdb_config_get (void *db_conn)
+
+	#
+	# QOS
+	#
+
+	cdef extern int slurmdb_qos_add(void *db_conn, uint32_t uid, List qos_list)
+	cdef extern List slurmdb_qos_get(void *db_conn, slurmdb_qos_cond_t *qos_cond)
+	cdef extern List slurmdb_qos_modify(void *db_conn, slurmdb_qos_cond_t *qos_cond, slurmdb_qos_rec_t *qos)
+	cdef extern List slurmdb_qos_remove(void *db_conn, slurmdb_qos_cond_t *qos_cond)

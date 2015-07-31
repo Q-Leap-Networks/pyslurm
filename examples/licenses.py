@@ -5,7 +5,7 @@ def display(lic_dict):
 	if lic_dict:
 
 		print licenses.ids()
-		print "Data last updated : %s" % pyslurm.epoch2date(licenses.lastUpdate())
+		print "State last updated : %s" % pyslurm.epoch2date(licenses.lastUpdate())
 		print "-" * 80
 		for key, value in lic_dict.iteritems():
 
@@ -23,21 +23,29 @@ def display(lic_dict):
 if __name__ == "__main__":
 
 	import pyslurm
+	import sys
 	import time
 
-	licenses = pyslurm.licenses()
+	try:
+		licenses = pyslurm.licenses()
+		lic = licenses.get()
+		old = licenses.lastUpdate()
 
-        lic = licenses.get()
-        old = licenses.lastUpdate()
-	new = old
-        display(lic)
+		new = old
+		display(lic)
 
-        while 1:
-           time.sleep(1)
-           lic = licenses.get()
-           new = licenses.lastUpdate()
-           if new > old:
-              old  = new
-              print "*****************"
-              display(lic)
-              print "*****************"
+		while 1:
+			time.sleep(1)
+			lic = licenses.get()
+			new = licenses.lastUpdate()
+			if new > old:
+				old  = new
+				print "*****************"
+				display(lic)
+				print "*****************"
+	except ValueError as e:
+		print "License error : %s" % (e)
+		sys.exit(-1)
+	except KeyboardInterrupt:
+		print "Exiting...."
+		sys.exit()
