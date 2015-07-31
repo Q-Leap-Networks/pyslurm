@@ -8,8 +8,10 @@ ifeq ($(DEBVENDOR), Qlustar)
     include /usr/share/ql-deb-utils/Makefile
 endif
 
+export PYBUILD_NAME = slurm
+
 %:
-	dh $@ --with python2,python3
+	dh $@ --with python2,python3 --buildsystem=pybuild
 
 override_dh_auto_build:
 	python setup.py build \
