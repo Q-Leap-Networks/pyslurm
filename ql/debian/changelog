@@ -1,3 +1,11 @@
+pyslurm (14.11.5-ql.1) stable; urgency=medium
+
+  * New upstream version 14.11.5
+  * Build against Slurm 14.11.5
+  * Add python 3 support
+
+ -- Roland Fehrenbacher <rf@q-leap.de>  Fri, 31 Jul 2015 12:47:42 +0200
+
 pyslurm (14.11.2-ql.1) stable; urgency=medium
 
   * New upstream version 14.11.2 
