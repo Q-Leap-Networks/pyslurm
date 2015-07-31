@@ -9,7 +9,7 @@ ifeq ($(DEBVENDOR), Qlustar)
 endif
 
 %:
-	dh $@ --with python2
+	dh $@ --with python2,python3
 
 override_dh_auto_build:
 	python setup.py build \
