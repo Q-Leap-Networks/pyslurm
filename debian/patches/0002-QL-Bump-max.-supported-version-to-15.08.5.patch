@@ -1,0 +1,21 @@
+From: Roland Fehrenbacher <rf@q-leap.de>
+Date: Wed, 16 Dec 2015 20:56:23 +0100
+Subject: QL: Bump max. supported version to 15.08.5
+
+---
+ setup.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/setup.py b/setup.py
+index 0e59a6d..0556a74 100644
+--- a/setup.py
++++ b/setup.py
+@@ -24,7 +24,7 @@ logging.basicConfig(level=20)
+ #VERSION = imp.load_source("/tmp", "pyslurm/__init__.py").__version__
+ __version__ = "15.08.2"
+ __min_slurm_hex_version__ = "0x0f0802"
+-__max_slurm_hex_version__ = "0x0f0803"
++__max_slurm_hex_version__ = "0x0f0805"
+ 
+ def fatal(logstring, code=1):
+ 	logger.error("Fatal: " + logstring)
