@@ -1,0 +1,16 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+DEBVENDOR  := $(shell dpkg-vendor --query Vendor)
+
+ifeq ($(DEBVENDOR), Qlustar)
+    # Qlustar specific stuff
+    include /usr/share/ql-deb-utils/Makefile
+endif
+
+export PYBUILD_NAME = slurm
+export PYBUILD_BUILD_ARGS = --slurm-lib=/usr/lib/$(DEB_HOST_MULTIARCH) --slurm-inc=/usr/include
+
+%:
+	dh $@ --with python2,python3 --buildsystem=pybuild
+

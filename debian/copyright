@@ -1,0 +1,25 @@
+This package was debianized for Qlustar by Roland Fehrenbacher <rf@q-leap.de>
+Mi 19. Feb 12:54:51 UTC 2014
+
+It uses the upstream git repository at
+https://github.com/gingergeeks/pyslurm.git
+
+Upstream Author(s):
+ Mark Roberts <mark@gingergeeks.co.uk>
+ Stephan Gorget <phantez@gmail.com>
+
+Copyright:
+
+    Copyright (C) PySlurm Developers 2010/2012 - www.gingergeeks.co.uk/pyslurm/
+
+License:
+
+ This software is provided under the GPL version 2,
+ see `/usr/share/common-licenses/GPL-2'.
+
+The Debian packaging is:
+
+    Copyright (C) 2014, Q-Leap Networks GmbH
+
+and is licensed under the GPL version 3, 
+see `/usr/share/common-licenses/GPL-3'.
