@@ -4,10 +4,10 @@ Priority: extra
 Maintainer: Q-Leap Debian Packaging Team <dpkg-team@q-leap.de>
 Uploaders: Roland Fehrenbacher <rf@q-leap.de>,
 Build-Depends: debhelper (>= 9), ql-deb-utils,
- slurm-wlm-basic-plugins, libslurm-dev, libslurmdb-dev,
- cython (>= 0.21), cython3 (>= 0.21), dh-python, python-all, python-setuptools,
- python3-all, python3-setuptools
-Standards-Version: 3.9.4
+ slurm-wlm-basic-plugins (>= 16.05.6), libslurm-dev (>= 16.05.6),
+ libslurmdb-dev (>= 16.05.6), cython (>= 0.21), cython3 (>= 0.21),
+ dh-python, python-all, python-setuptools, python3-all, python3-setuptools
+Standards-Version: 3.9.8
 Homepage: https://github.com/gingergeeks/pyslurm
 
 Package: python-slurm
