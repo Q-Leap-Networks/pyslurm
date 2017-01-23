@@ -1,0 +1,21 @@
+From: Roland Fehrenbacher <rf@q-leap.de>
+Date: Mon, 23 Jan 2017 09:14:18 +0000
+Subject: QL - Bump Slurm support to 16.05.8
+
+---
+ setup.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/setup.py b/setup.py
+index 88fcb8e..cb5a82b 100644
+--- a/setup.py
++++ b/setup.py
+@@ -24,7 +24,7 @@ logging.basicConfig(level=20)
+ #VERSION = imp.load_source("/tmp", "pyslurm/__init__.py").__version__
+ __version__ = "16.05.5"
+ __min_slurm_hex_version__ = "0x100505"
+-__max_slurm_hex_version__ = "0x100507"
++__max_slurm_hex_version__ = "0x100508"
+ 
+ def fatal(logstring, code=1):
+     logger.error("Fatal: " + logstring)
