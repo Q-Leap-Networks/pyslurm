@@ -1,0 +1,22 @@
+From: Roland Fehrenbacher <rf@q-leap.de>
+Date: Thu, 2 Feb 2017 15:40:29 +0000
+Subject: QL - Fix job runtime for suspended jobs
+
+---
+ pyslurm/pyslurm.pyx | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/pyslurm/pyslurm.pyx b/pyslurm/pyslurm.pyx
+index 29db075..9c6bf5b 100644
+--- a/pyslurm/pyslurm.pyx
++++ b/pyslurm/pyslurm.pyx
+@@ -2121,8 +2121,7 @@ cdef class job:
+                     end_time = self._record.end_time
+ 
+                 if self._record.suspend_time:
+-                    run_time = <time_t>difftime(end_time, (self._record.suspend_time +
+-                                                           self._record.pre_sus_time))
++                    run_time = <time_t>difftime(end_time, self._record.suspend_time) + self._record.pre_sus_time
+                 else:
+                     run_time = <time_t>difftime(end_time, self._record.start_time)
+ 
