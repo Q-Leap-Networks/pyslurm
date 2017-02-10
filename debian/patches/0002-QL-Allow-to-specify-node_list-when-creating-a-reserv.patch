@@ -1,0 +1,23 @@
+From: Navid Fehrenbacher <nf@q-leap.de>
+Date: Fri, 10 Feb 2017 14:25:49 +0000
+Subject: QL - Allow to specify node_list when creating a reservation
+
+---
+ pyslurm/pyslurm.pyx | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/pyslurm/pyslurm.pyx b/pyslurm/pyslurm.pyx
+index 6fe40f5..def7338 100644
+--- a/pyslurm/pyslurm.pyx
++++ b/pyslurm/pyslurm.pyx
+@@ -3609,6 +3609,10 @@ def slurm_create_reservation(dict reservation_dict={}):
+         resv_msg.node_cnt[0] = int_value
+         resv_msg.node_cnt[1] = 0
+ 
++    if reservation_dict[u'node_list'] is not '':
++        name = reservation_dict[u'node_list']
++        resv_msg.node_list = name
++
+     if reservation_dict[u'users'] is not '':
+         name = reservation_dict[u'users']
+         resv_msg.users = strcpy(<char*>slurm.xmalloc(strlen(name)+1), name)

@@ -1,2 +1,2 @@
-0001-QL-Bump-Slurm-support-to-16.05.8.patch
-0002-QL-Fix-job-runtime-for-suspended-jobs.patch
+0001-QL-Fix-job-runtime-for-suspended-jobs.patch
+0002-QL-Allow-to-specify-node_list-when-creating-a-reserv.patch
