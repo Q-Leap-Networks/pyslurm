@@ -1,8 +1,10 @@
-pyslurm (16.05.8-ql.2) stable; urgency=medium
+pyslurm (16.05.8.1-ql.1) stable; urgency=medium
 
+  [ Roland Fehrenbacher ]
   * Fix job runtime for suspended jobs
+  * Add support for node_list when creating reservations
 
- -- Roland Fehrenbacher <rf@q-leap.de>  Thu, 02 Feb 2017 16:42:24 +0100
+ -- Roland Fehrenbacher <rf@q-leap.de>  Fri, 10 Feb 2017 20:18:20 +0100
 
 pyslurm (16.05.8-ql.1) stable; urgency=medium
 
