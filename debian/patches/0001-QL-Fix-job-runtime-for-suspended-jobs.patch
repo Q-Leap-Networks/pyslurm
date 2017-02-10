@@ -7,10 +7,10 @@ Subject: QL - Fix job runtime for suspended jobs
  1 file changed, 1 insertion(+), 2 deletions(-)
 
 diff --git a/pyslurm/pyslurm.pyx b/pyslurm/pyslurm.pyx
-index 29db075..9c6bf5b 100644
+index 72cf5bf..6fe40f5 100644
 --- a/pyslurm/pyslurm.pyx
 +++ b/pyslurm/pyslurm.pyx
-@@ -2121,8 +2121,7 @@ cdef class job:
+@@ -2137,8 +2137,7 @@ cdef class job:
                      end_time = self._record.end_time
  
                  if self._record.suspend_time:
