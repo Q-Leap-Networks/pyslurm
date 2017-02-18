@@ -1,2 +1,1 @@
-0001-QL-Fix-job-runtime-for-suspended-jobs.patch
-0002-QL-Allow-to-specify-node_list-when-creating-a-reserv.patch
+0001-QL-Fix-exception-in-job.get_job_ptr-due-to-wrong-str.patch
