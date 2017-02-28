@@ -3674,36 +3674,51 @@ def slurm_update_reservation(dict reservation_dict={}):
 
     slurm.slurm_init_resv_desc_msg(&resv_msg)
 
-    time_value = reservation_dict[u'start_time']
-    if time_value != -1:
+    # Be careful: Updating the start_time fails, if the previous start_time
+    # of the reservation is in the past.
+    # Set reservation_dict[u'start_time'] = -1 to handle this case.
+    if reservation_dict[u'start_time'] != -1:
+        time_value = reservation_dict[u'start_time']
         resv_msg.start_time = time_value
 
-    uint32_value = reservation_dict[u'duration']
-    if uint32_value != -1:
+    if reservation_dict[u'duration'] != -1:
+        uint32_value = reservation_dict[u'duration']
         resv_msg.duration = uint32_value
 
-    if reservation_dict[u'name'] is not '':
-        resv_msg.name = reservation_dict[u'name']
+    if reservation_dict[u'node_cnt'] != -1:
+        uint32_value = reservation_dict[u'node_cnt']
+        resv_msg.node_cnt = <uint32_t*>slurm.xmalloc(sizeof(uint32_t) * 2)
+        resv_msg.node_cnt[0] = uint32_value
+        resv_msg.node_cnt[1] = 0
 
-#    if reservation_dict[u'node_cnt'] != -1:
-#        uint32_value = reservation_dict[u'node_cnt']
-#        resv_msg.node_cnt = uint32_value
+    if reservation_dict[u'node_list'] is not '':
+        name = reservation_dict[u'node_list']
+        resv_msg.node_list = name
 
     if reservation_dict[u'users'] is not '':
         name = reservation_dict[u'users']
-        resv_msg.users = <char*>slurm.xmalloc((len(name)+1)*sizeof(char))
-        strcpy(resv_msg.users, name)
+        resv_msg.users = strcpy(<char*>slurm.xmalloc(strlen(name)+1), name)
         free_users = 1
 
     if reservation_dict[u'accounts'] is not '':
         name = reservation_dict[u'accounts']
-        resv_msg.accounts = <char*>slurm.xmalloc((len(name)+1)*sizeof(char))
-        strcpy(resv_msg.accounts, name)
+        resv_msg.accounts = strcpy(<char*>slurm.xmalloc(strlen(name)+1), name)
         free_accounts = 1
 
     if reservation_dict[u'licenses'] is not '':
         name = reservation_dict[u'licenses']
         resv_msg.licenses = name
+
+    if reservation_dict[u'partition'] is not '':
+        name = reservation_dict[u'partition']
+        resv_msg.partition = name
+
+    if reservation_dict[u'flags'] is not '':
+        uint32_value = reservation_dict[u'flags']
+        resv_msg.flags = uint32_value
+
+    if reservation_dict[u'name'] is not '':
+        resv_msg.name = reservation_dict[u'name']
 
     errCode = slurm.slurm_update_reservation(&resv_msg)
 
@@ -3713,7 +3728,6 @@ def slurm_update_reservation(dict reservation_dict={}):
         slurm.xfree(resv_msg.accounts)
 
     return errCode
-
 
 def slurm_delete_reservation(char* ResID=''):
     u"""Delete a slurm reservation.
