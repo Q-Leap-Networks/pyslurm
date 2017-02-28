@@ -1,13 +1,17 @@
+pyslurm (16.05.8.3-ql.1) stable; urgency=medium
+
+  * Add patches for reservation handling
+
+ -- Roland Fehrenbacher <rf@q-leap.de>  Tue, 28 Feb 2017 11:44:49 +0100
+
 pyslurm (16.05.8.2-ql.1) stable; urgency=medium
 
-  [ Roland Fehrenbacher ]
   * Fix exception with job handling
 
  -- Roland Fehrenbacher <rf@q-leap.de>  Sat, 18 Feb 2017 14:53:32 +0100
 
 pyslurm (16.05.8.1-ql.1) stable; urgency=medium
 
-  [ Roland Fehrenbacher ]
   * Fix job runtime for suspended jobs
   * Add support for node_list when creating reservations
 
