@@ -3593,7 +3593,7 @@ def slurm_create_reservation(dict reservation_dict={}):
         int free_users = 0
         int free_accounts = 0
         unsigned int uint32_value
-        unsigned int time_value
+        slurm.time_t time_value
 
     slurm.slurm_init_resv_desc_msg(&resv_msg)
 
@@ -3604,9 +3604,9 @@ def slurm_create_reservation(dict reservation_dict={}):
     resv_msg.duration = uint32_value
 
     if reservation_dict[u'node_cnt'] != -1:
-        int_value = reservation_dict[u'node_cnt']
+        uint32_value = reservation_dict[u'node_cnt']
         resv_msg.node_cnt = <uint32_t*>slurm.xmalloc(sizeof(uint32_t) * 2)
-        resv_msg.node_cnt[0] = int_value
+        resv_msg.node_cnt[0] = uint32_value
         resv_msg.node_cnt[1] = 0
 
     if reservation_dict[u'node_list'] is not '':
@@ -3627,9 +3627,13 @@ def slurm_create_reservation(dict reservation_dict={}):
         name = reservation_dict[u'licenses']
         resv_msg.licenses = name
 
+    if reservation_dict[u'partition'] is not '':
+        name = reservation_dict[u'partition']
+        resv_msg.partition = name
+
     if reservation_dict[u'flags'] is not '':
-        int_value = reservation_dict[u'flags']
-        resv_msg.flags = int_value
+        uint32_value = reservation_dict[u'flags']
+        resv_msg.flags = uint32_value
 
     if reservation_dict[u'name'] is not '':
         name = reservation_dict[u'name']
@@ -3651,7 +3655,6 @@ def slurm_create_reservation(dict reservation_dict={}):
         raise ValueError(slurm.slurm_strerror(apiError), apiError)
 
     return u"%s" % resID
-
 
 def slurm_update_reservation(dict reservation_dict={}):
     u"""Update a slurm reservation.
