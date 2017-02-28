@@ -1,1 +1,2 @@
-0001-QL-Fix-exception-in-job.get_job_ptr-due-to-wrong-str.patch
+0001-QL-Fixes-in-slurm_create_reservation.patch
+0002-QL-Fix-slurm_update_reservation.patch
