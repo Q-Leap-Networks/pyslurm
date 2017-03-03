@@ -3609,9 +3609,25 @@ def slurm_create_reservation(dict reservation_dict={}):
         resv_msg.node_cnt[0] = uint32_value
         resv_msg.node_cnt[1] = 0
 
-    if reservation_dict[u'node_list'] is not '':
+    if reservation_dict[u'core_cnt'] and not reservation_dict[u'node_list']:
+        uint32_value = reservation_dict[u'core_cnt'][0]
+        resv_msg.core_cnt = <uint32_t*>slurm.xmalloc(sizeof(uint32_t))
+        resv_msg.core_cnt[0] = uint32_value
+
+    if reservation_dict[u'node_list']:
         name = reservation_dict[u'node_list']
         resv_msg.node_list = name
+        if reservation_dict[u'core_cnt']:
+            hl = hostlist()
+            hl.create(name)
+            if len(reservation_dict[u'core_cnt']) != hl.count():
+                raise ValueError("core_cnt list must have the same # elements as the expanded hostlist")
+            resv_msg.core_cnt = <uint32_t*>slurm.xmalloc(sizeof(uint32_t) * hl.count())
+            int_value = 0
+            for cores in reservation_dict[u'core_cnt']:
+                uint32_value = cores
+                resv_msg.core_cnt[int_value] = uint32_value
+                int_value += 1
 
     if reservation_dict[u'users'] is not '':
         name = reservation_dict[u'users']
@@ -3691,9 +3707,26 @@ def slurm_update_reservation(dict reservation_dict={}):
         resv_msg.node_cnt[0] = uint32_value
         resv_msg.node_cnt[1] = 0
 
-    if reservation_dict[u'node_list'] is not '':
+    if reservation_dict[u'core_cnt'] and not reservation_dict[u'node_list']:
+        uint32_value = reservation_dict[u'core_cnt'][0]
+        resv_msg.core_cnt = <uint32_t*>slurm.xmalloc(sizeof(uint32_t))
+        resv_msg.core_cnt[0] = uint32_value
+
+    if reservation_dict[u'node_list']:
         name = reservation_dict[u'node_list']
         resv_msg.node_list = name
+        if reservation_dict[u'core_cnt']:
+            hl = hostlist()
+            hl.create(name)
+            if len(reservation_dict[u'core_cnt']) != hl.count():
+                raise ValueError("core_cnt list must have the same # elements as the expanded hostlist")
+            resv_msg.core_cnt = <uint32_t*>slurm.xmalloc(sizeof(uint32_t) * hl.count())
+            int_value = 0
+            for cores in reservation_dict[u'core_cnt']:
+                slurm_perror(str.encode(str(cores)))
+                uint32_value = cores
+                resv_msg.core_cnt[int_value] = uint32_value
+                int_value += 1
 
     if reservation_dict[u'users'] is not '':
         name = reservation_dict[u'users']
