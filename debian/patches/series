@@ -1,2 +1,3 @@
 0001-QL-Fixes-in-slurm_create_reservation.patch
 0002-QL-Fix-slurm_update_reservation.patch
+0003-QL-Implement-setting-a-core_cnt-for-reservations-spe.patch
