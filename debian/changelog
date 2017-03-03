@@ -1,8 +1,8 @@
-pyslurm (16.05.8.3-ql.1) stable; urgency=medium
+pyslurm (16.05.8.3-ql.2) stable; urgency=medium
 
   * Add patches for reservation handling
 
- -- Roland Fehrenbacher <rf@q-leap.de>  Tue, 28 Feb 2017 11:44:49 +0100
+ -- Roland Fehrenbacher <rf@q-leap.de>  Fri, 03 Mar 2017 14:12:00 +0100
 
 pyslurm (16.05.8.2-ql.1) stable; urgency=medium
 
