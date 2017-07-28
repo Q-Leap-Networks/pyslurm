@@ -1,3 +1,10 @@
+pyslurm (17.02.6-ql.1) stable; urgency=medium
+
+  * New upstream version 17.02.6
+  * Build against Slurm 17.02.6
+
+ -- Roland Fehrenbacher <rf@q-leap.de>  Fri, 28 Jul 2017 14:45:50 +0200
+
 pyslurm (16.05.8.3-ql.2) stable; urgency=medium
 
   * Add patches for reservation handling
