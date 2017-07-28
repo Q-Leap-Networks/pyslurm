@@ -9,10 +9,10 @@ Subject: QL - Implement setting a core_cnt for reservations specifying a
  2 files changed, 36 insertions(+), 3 deletions(-)
 
 diff --git a/pyslurm/pyslurm.pyx b/pyslurm/pyslurm.pyx
-index 23f479a..7d734df 100644
+index bf54930..9c84d8b 100644
 --- a/pyslurm/pyslurm.pyx
 +++ b/pyslurm/pyslurm.pyx
-@@ -3609,9 +3609,25 @@ def slurm_create_reservation(dict reservation_dict={}):
+@@ -3673,9 +3673,25 @@ def slurm_create_reservation(dict reservation_dict={}):
          resv_msg.node_cnt[0] = uint32_value
          resv_msg.node_cnt[1] = 0
  
@@ -39,7 +39,7 @@ index 23f479a..7d734df 100644
  
      if reservation_dict[u'users'] is not '':
          name = reservation_dict[u'users']
-@@ -3691,9 +3707,26 @@ def slurm_update_reservation(dict reservation_dict={}):
+@@ -3755,9 +3771,26 @@ def slurm_update_reservation(dict reservation_dict={}):
          resv_msg.node_cnt[0] = uint32_value
          resv_msg.node_cnt[1] = 0
  
@@ -68,10 +68,10 @@ index 23f479a..7d734df 100644
      if reservation_dict[u'users'] is not '':
          name = reservation_dict[u'users']
 diff --git a/pyslurm/slurm.pxd b/pyslurm/slurm.pxd
-index 89f08c8..e88a5e2 100644
+index d822e2f..a6aa56f 100644
 --- a/pyslurm/slurm.pxd
 +++ b/pyslurm/slurm.pxd
-@@ -1497,7 +1497,7 @@ cdef extern from 'slurm/slurm.h' nogil:
+@@ -1545,7 +1545,7 @@ cdef extern from 'slurm/slurm.h' nogil:
      ctypedef struct resv_desc_msg:
          char *accounts
          char *burst_buffer
