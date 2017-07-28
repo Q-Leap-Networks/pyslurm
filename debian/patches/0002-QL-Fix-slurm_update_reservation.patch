@@ -9,10 +9,10 @@ equal code as in slurm_create_reservation, not because of a bug.
  1 file changed, 28 insertions(+), 14 deletions(-)
 
 diff --git a/pyslurm/pyslurm.pyx b/pyslurm/pyslurm.pyx
-index 0fb96f7..23f479a 100644
+index f7d7ad2..bf54930 100644
 --- a/pyslurm/pyslurm.pyx
 +++ b/pyslurm/pyslurm.pyx
-@@ -3674,37 +3674,52 @@ def slurm_update_reservation(dict reservation_dict={}):
+@@ -3738,37 +3738,52 @@ def slurm_update_reservation(dict reservation_dict={}):
  
      slurm.slurm_init_resv_desc_msg(&resv_msg)
  
@@ -78,7 +78,7 @@ index 0fb96f7..23f479a 100644
      errCode = slurm.slurm_update_reservation(&resv_msg)
  
      if free_users == 1:
-@@ -3714,7 +3729,6 @@ def slurm_update_reservation(dict reservation_dict={}):
+@@ -3778,7 +3793,6 @@ def slurm_update_reservation(dict reservation_dict={}):
  
      return errCode
  
