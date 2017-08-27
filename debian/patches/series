@@ -1,4 +1,3 @@
-0001-QL-Fixes-in-slurm_create_reservation.patch
-0002-QL-Fix-slurm_update_reservation.patch
-0003-QL-Implement-setting-a-core_cnt-for-reservations-spe.patch
-0004-QL-Fix-check_libPath-in-setup.py.patch
+0001-QL-Enhance-creating-and-updating-reservations.patch
+0002-QL-Fix-check_libPath-in-setup.py.patch
+0003-QL-Bump-Slurm-support-to-17.02.7.patch
