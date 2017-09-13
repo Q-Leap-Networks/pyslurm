@@ -1,10 +1,11 @@
-pyslurm (17.02.7-ql.1) stable; urgency=medium
+pyslurm (17.02.7-ql.2) stable; urgency=medium
 
   * New upstream version 17.02.7
   * Build against Slurm 17.02.7
   * Adjust reservation patches
+  * Patches to handle NO_VAL* and INFINITE* values
 
- -- Roland Fehrenbacher <rf@q-leap.de>  Sun, 27 Aug 2017 11:56:00 +0200
+ -- Roland Fehrenbacher <rf@q-leap.de>  Wed, 13 Sep 2017 13:45:05 +0200
 
 pyslurm (17.02.6-ql.1) stable; urgency=medium
 

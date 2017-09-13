@@ -1,3 +1,6 @@
 0001-QL-Enhance-creating-and-updating-reservations.patch
 0002-QL-Fix-check_libPath-in-setup.py.patch
 0003-QL-Bump-Slurm-support-to-17.02.7.patch
+0004-QL-Convert-job_acct_gather_freq-to-string.patch
+0005-QL-Correct-cpu_freq-fields-of-jobdict.patch
+0006-QL-Handle-more-NO_VAL-and-INFINITE-values.patch

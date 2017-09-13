@@ -1,0 +1,21 @@
+From: Roland Fehrenbacher <rf@q-leap.de>
+Date: Mon, 11 Sep 2017 15:08:38 +0000
+Subject: QL - Convert job_acct_gather_freq to string
+
+---
+ pyslurm/pyslurm.pyx | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/pyslurm/pyslurm.pyx b/pyslurm/pyslurm.pyx
+index 8bd339b..122168e 100644
+--- a/pyslurm/pyslurm.pyx
++++ b/pyslurm/pyslurm.pyx
+@@ -544,7 +544,7 @@ cdef class config:
+             Ctl_dict[u'health_check_node_state'] = self.__Config_ptr.health_check_node_state
+             Ctl_dict[u'health_check_program'] = slurm.stringOrNone(self.__Config_ptr.health_check_program, '')
+             Ctl_dict[u'inactive_limit'] = self.__Config_ptr.inactive_limit
+-            Ctl_dict[u'job_acct_gather_freq'] = self.__Config_ptr.job_acct_gather_freq
++            Ctl_dict[u'job_acct_gather_freq'] = slurm.stringOrNone(self.__Config_ptr.job_acct_gather_freq, '')
+             Ctl_dict[u'job_acct_gather_type'] = slurm.stringOrNone(self.__Config_ptr.job_acct_gather_type, '')
+             Ctl_dict[u'job_acct_gather_params'] = slurm.stringOrNone(self.__Config_ptr.job_acct_gather_params, '')
+             Ctl_dict[u'job_ckpt_dir'] = slurm.stringOrNone(self.__Config_ptr.job_ckpt_dir, '')
