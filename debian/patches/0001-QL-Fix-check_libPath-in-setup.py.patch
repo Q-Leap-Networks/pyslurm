@@ -1,5 +1,5 @@
 From: Roland Fehrenbacher <rf@q-leap.de>
-Date: Sun, 27 Aug 2017 16:39:24 +0200
+Date: Mon, 9 Oct 2017 14:20:54 +0000
 Subject: QL - Fix check_libPath in setup.py
 
 ---
@@ -7,7 +7,7 @@ Subject: QL - Fix check_libPath in setup.py
  1 file changed, 6 insertions(+), 7 deletions(-)
 
 diff --git a/setup.py b/setup.py
-index e90a7a9..6e524bc 100644
+index b382e04..3404230 100644
 --- a/setup.py
 +++ b/setup.py
 @@ -146,13 +146,12 @@ def check_libPath(slurm_path):
