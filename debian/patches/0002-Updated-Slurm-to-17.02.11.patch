@@ -1,0 +1,21 @@
+From: Roland Fehrenbacher <rf@q-leap.de>
+Date: Tue, 5 Jun 2018 16:54:27 +0000
+Subject: Updated Slurm to 17.02.11
+
+---
+ setup.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/setup.py b/setup.py
+index 49091e1..b9fdda9 100644
+--- a/setup.py
++++ b/setup.py
+@@ -24,7 +24,7 @@ logging.basicConfig(level=20)
+ #VERSION = imp.load_source("/tmp", "pyslurm/__init__.py").__version__
+ __version__ = "17.02.0"
+ __min_slurm_hex_version__ = "0x110200"
+-__max_slurm_hex_version__ = "0x11020a"
++__max_slurm_hex_version__ = "0x11020b"
+ 
+ def fatal(logstring, code=1):
+     logger.error("Fatal: " + logstring)
