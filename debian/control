@@ -1,0 +1,38 @@
+Source: pyslurm
+Section: libs
+Priority: extra
+Maintainer: Q-Leap Debian Packaging Team <dpkg-team@q-leap.de>
+Uploaders: Roland Fehrenbacher <rf@q-leap.de>,
+Build-Depends: cython (>= 0.21),
+               cython3 (>= 0.21),
+               debhelper (>= 9),
+               dh-python,
+               libslurm-dev (>= 17.02.6),
+               libslurmdb-dev (>= 17.02.6),
+               python-all,
+               python-setuptools,
+               python3-all,
+               python3-setuptools,
+               ql-deb-utils,
+               slurm-wlm-basic-plugins (>= 17.02.6),
+Standards-Version: 3.9.8
+Homepage: https://github.com/gingergeeks/pyslurm
+
+Package: python-slurm
+Architecture: any
+Depends: ${misc:Depends},
+         ${shlibs:Depends},
+Conflicts: pyslurm,
+Replaces: pyslurm,
+Provides: pyslurm,
+Description: Python interface to slurm
+ Python interface to slurm
+ This package supports python 2.x.
+
+Package: python3-slurm
+Architecture: any
+Depends: ${misc:Depends},
+         ${shlibs:Depends},
+Description: Python interface to slurm
+ Python interface to slurm
+ This package supports python 3.x.
