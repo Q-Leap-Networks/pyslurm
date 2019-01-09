@@ -1,9 +1,9 @@
-pyslurm (17.11.9-ql.1) stable; urgency=medium
+pyslurm (18.08.4+ds.1-ql.1) stable; urgency=medium
 
-  * New upstream version 17.11.9
-  * Build against Slurm 17.11.9.2.2
+  * New upstream version 18.08.4
+  * Build against Slurm 18.08.4
 
- -- Roland Fehrenbacher <rf@q-leap.de>  Tue, 11 Sep 2018 19:30:27 +0000
+ -- Roland Fehrenbacher <rf@q-leap.de>  Wed, 09 Jan 2019 13:58:18 +0000
 
 pyslurm (17.11.7-ql.1) stable; urgency=medium
 
