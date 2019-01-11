@@ -1,1 +1,2 @@
 0001-QL-Fix-check_libPath-in-setup.py.patch
+0002-QL-Use-correct-ints-for-Controller-in-slurm_ping.patch

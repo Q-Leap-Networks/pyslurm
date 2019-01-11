@@ -1,0 +1,25 @@
+From: Roland Fehrenbacher <rf@q-leap.de>
+Date: Fri, 11 Jan 2019 10:53:29 +0000
+Subject: QL - Use correct ints for Controller in slurm_ping
+
+---
+ pyslurm/pyslurm.pyx | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/pyslurm/pyslurm.pyx b/pyslurm/pyslurm.pyx
+index 4714fda..e3a1bd0 100644
+--- a/pyslurm/pyslurm.pyx
++++ b/pyslurm/pyslurm.pyx
+@@ -1211,10 +1211,10 @@ def slurm_delete_partition(PartID):
+ #
+ 
+ 
+-cpdef int slurm_ping(int Controller=1) except? -1:
++cpdef int slurm_ping(int Controller=0) except? -1:
+     u"""Issue RPC to check if slurmctld is responsive.
+ 
+-    :param int Controller: 1 for primary (Default=1), 2 for backup
++    :param int Controller: 0 for primary (Default=0), 1 for backup, 2 for backup2, ...
+     :returns: 0 for success or slurm error code
+     :rtype: `integer`
+     """
